@@ -1,14 +1,26 @@
 import { useEffect, useState } from "react"
+import {useSelector,useDispatch } from "react-redux";
+import { setData } from "../reducers/data/dataSlice.jsx";
+
 
 export function Listas() {
-    console.log("hola")
-    const [data, setData] = useState([]);
+
+    const data=useSelector(state=>state.data);
+    const dispatch = useDispatch()
+    // console.log("hola")
+
+    // const [data, setData] = useState([]);
 
     useEffect(() => {
          
         fetch('http://localhost/apiLaravel%20jimena/public/api/mibase')
         .then(res=>res.json())
-        .then(datas=>setData(datas)
+        .then(datas=>
+            // setData(datas)
+            {
+                console.log(datas)
+                dispatch(setData(datas))
+            }
         )
 
     }, [])
