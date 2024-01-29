@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
-
-// id:"",
-// imagen:"",
-// nombre:"",
-// descripcion:""
-
 const initialState = []
 
 const dataSlice = createSlice({
@@ -19,10 +13,9 @@ const dataSlice = createSlice({
       return action.payload
     },
     
-
-
   },
 })
+
 
 export const { setData} = dataSlice.actions
 export default dataSlice.reducer
